@@ -1,0 +1,9 @@
+{
+  "calculatorInstallments": ".calculator > #open-installments-modal",
+  "bankSelector": "#bankSelector",
+  "bankSelect": "#selectBank > ul li",
+  "cardSelector": "#cardSelector",
+  "cardSelectByBank": "#selectCardByBank > ul li",
+  "calculateButton": "#calculate_btn > .btn-primary",
+  "priceContent": ".price-content"
+}

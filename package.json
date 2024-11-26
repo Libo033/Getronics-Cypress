@@ -1,0 +1,16 @@
+{
+  "name": "getronics-cypress",
+  "version": "1.0.0",
+  "description": "Ejercicios practicos de Cypress para Getronics",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "test:ui": "npx cypress open"
+  },
+  "author": "valentinlibonati33@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.16.0",
+    "typescript": "^5.7.2"
+  }
+}

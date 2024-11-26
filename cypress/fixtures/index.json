@@ -1,0 +1,8 @@
+{
+  "searchButton": "#search_action",
+  "searchBar": "#search",
+  "suggestLocation": "/search/ajax/suggest/*",
+  "firstSuggestion": "#qs-option-0",
+  "memoryFilterTitle": ".memory > .filter-title",
+  "memoryAnchor": ".aggregations > a"
+}
