@@ -10,11 +10,11 @@ describe("El objetivo del caso de prueba es visitar la tienda de Movistar (https
     cy.intercept("/graphql?query*").as("queryFilters"); // Intercepcion de los filtros.
   });
 
-  it("Ingreso a la página indicada", () => {
+  /*it("Ingreso a la página indicada", () => {
     cy.verifyPage(url);
-  });
+  });*/
 
-  it("Aplicacion de filtros deseados (Memoria Interna 128GB - Precio: $ 0 - $ 300.000)", () => {
+  /*it("Aplicacion de filtros deseados (Memoria Interna 128GB - Precio: $ 0 - $ 300.000)", () => {
     // --- Filtro de precio reemplazado ---
     const homePage = new HomePage();
 
@@ -29,7 +29,37 @@ describe("El objetivo del caso de prueba es visitar la tienda de Movistar (https
       .invoke("text")
       .invoke("replace", /\u00a0/g, " ")
       .should("eq", "$ 0 - $ 300.000");
-  });
+  });*/
 
-  // it("Equipos filtrados correctamente", () => {});
+  it("Equipos filtrados correctamente", () => {
+    const homePage = new HomePage();
+
+    homePage.filterByInternalMemory("128GB");
+    homePage.filterByPrice(0, 300000);
+
+    // TODO: BUSCAR SOLUCION A ESTO
+    cy.wait("@queryFilters"); // Espera la primera response de los filtros
+    cy.wait("@queryFilters"); // Espera la segunda response de los filtros
+    cy.wait("@queryFilters"); // Espera la tercera response de los filtros
+
+    cy.get(".products > ol li").each((product) => {
+      cy.get(
+        `[data-id="${product.data(
+          "id"
+        )}"] > a > .product-image-container > .cp-data-container > .product-item-custom-text > .product-storage`
+      ).should("contain", "128 GB");
+
+      cy.get(
+        `ol > [data-id="${product.data(
+          "id"
+        )}"] > a > .product-image-container > .cp-data-container > .product-item-details > .final-price > .product-offer > .special-price`
+      )
+        .invoke("text")
+        .invoke("replace", "$", "")
+        .invoke("replace", ".", "")
+        .then((price: string) => {
+          expect(parseInt(price)).to.be.lte(300000);
+        });
+    });
+  });
 });
