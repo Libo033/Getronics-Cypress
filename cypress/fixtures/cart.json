@@ -1,0 +1,5 @@
+{
+  "productBrand": ".product-manufacturer",
+  "productModel": ".product-model",
+  "colorTag": ".item-options > dd"
+}

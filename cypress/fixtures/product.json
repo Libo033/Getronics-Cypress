@@ -8,5 +8,9 @@
   "priceContent": ".price-content",
   "getinstallments": "/financingconsult/financingconsult/getinstallments*",
   "productBrand": ".page-title > .brand",
-  "productInfo": ".product-info-main"
+  "productInfo": ".product-info-main",
+  "warrantySection": "#more-info-pdp-warranty",
+  "productModel": ".base",
+  "colorAttr": ".swatch-opt > .swatch-attribute > .swatch-attribute-options >",
+  "addToCartButton": "#swatch_attribute_card"
 }

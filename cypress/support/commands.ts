@@ -28,3 +28,11 @@ Cypress.Commands.add("verifyPage", (url) => {
   cy.url().should("contain", url);
   cy.get('[title="Tienda Movistar"]').should("be.visible");
 });
+
+Cypress.Commands.add("verifyWarranty", () => {
+  cy.fixture("product.json").then((locators) => {
+    cy.get(locators.warrantySection)
+      .should("be.visible")
+      .and("contain", "garantía Movistar");
+  });
+});

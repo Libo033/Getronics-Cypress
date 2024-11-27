@@ -16,6 +16,25 @@ class ProductPage {
       cy.wait("@getInstallments");
     });
   }
+
+  verifyProduct(brand: string, model: string): void {
+    cy.fixture("product.json").then((locators) => {
+      cy.get(locators.productBrand).should("contain", brand);
+      cy.get(locators.productModel).should("contain", model);
+    });
+  }
+
+  setColor(color: string): void {
+    cy.fixture("product.json").then((locators) => {
+      cy.get(`${locators.colorAttr} [data-option-label="${color}"]`).click();
+    });
+  }
+
+  addToCart(): void {
+    cy.fixture("product.json").then((locators) => {
+      cy.get(locators.addToCartButton).click();
+    });
+  }
 }
 
 export default ProductPage;
