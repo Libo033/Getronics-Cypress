@@ -11,7 +11,5 @@
   "productList": ".products > ol li",
   "productStorage": "> a > .product-image-container > .cp-data-container > .product-item-custom-text > .product-storage",
   "productPrice": "> a > .product-image-container > .cp-data-container > .product-item-details > .final-price > .product-offer > .special-price",
-  "productLink": ".product-item",
-  "productBrand": ".page-title > .brand",
-  "productInfo": ".product-info-main"
+  "productLink": ".product-item"
 }

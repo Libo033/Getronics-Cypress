@@ -6,5 +6,7 @@
   "cardSelectByBank": "#selectCardByBank > ul li > ",
   "calculateButton": "#calculate_btn > .btn-primary",
   "priceContent": ".price-content",
-  "getinstallments": "/financingconsult/financingconsult/getinstallments*"
+  "getinstallments": "/financingconsult/financingconsult/getinstallments*",
+  "productBrand": ".page-title > .brand",
+  "productInfo": ".product-info-main"
 }

@@ -13,7 +13,7 @@ describe("El objetivo del caso de prueba es visitar la tienda de Movistar (https
   });
 
   it("Seleccionar el tercer producto de la lista", () => {
-    cy.fixture("index.json").then((locators) => {
+    cy.fixture("product.json").then((locators) => {
       const homePage = new HomePage();
 
       homePage.selectProduct(2); // Ingreso al tercer producto
