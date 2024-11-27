@@ -33,9 +33,7 @@ describe("El objetivo del caso de prueba es visitar la tienda de Movistar (https
 
     catalogPage.firstProduct();
 
-    // cy.get(".price-content").should("contain", "3 cuotas sin interés");
-
-    productPage.calculateInstallments(0, 0);
+    productPage.calculateInstallments("American Express", "American Express");
 
     cy.get("#bodyTable").should("contain", "3 cuotas sin interés");
   });

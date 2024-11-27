@@ -3,7 +3,8 @@
   "bankSelector": "#bankSelector",
   "bankSelect": "#selectBank > ul li",
   "cardSelector": "#cardSelector",
-  "cardSelectByBank": "#selectCardByBank > ul li",
+  "cardSelectByBank": "#selectCardByBank > ul li > ",
   "calculateButton": "#calculate_btn > .btn-primary",
-  "priceContent": ".price-content"
+  "priceContent": ".price-content",
+  "getinstallments": "/financingconsult/financingconsult/getinstallments*"
 }

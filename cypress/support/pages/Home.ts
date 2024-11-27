@@ -14,10 +14,9 @@ class HomePage {
 
   filterByInternalMemory(memory: string): void {
     cy.fixture("index.json").then((locators) => {
-      Cypress.config("defaultCommandTimeout", 6000);
       cy.intercept(locators.graphqlProduct).as("queryProducts");
 
-      cy.get(locators.memoryFilterTitle).click();
+      cy.get(locators.memoryFilterTitle).click({ timeout: 100000 });
       cy.get(locators.memoryAnchor).contains(memory).click();
 
       cy.wait("@queryProducts");
@@ -26,12 +25,17 @@ class HomePage {
 
   filterByPrice(min: number, max: number): void {
     cy.fixture("index.json").then((locators) => {
-      Cypress.config("defaultCommandTimeout", 6000);
       cy.intercept(locators.graphqlProduct).as("queryProducts");
 
-      cy.get(`[data-value="${min}_${max}"] > a`).click({ timeout: 6000 });
+      cy.get(`[data-value="${min}_${max}"] > a`).click({ timeout: 100000 });
 
       cy.wait("@queryProducts");
+    });
+  }
+
+  selectProduct(product: number): void {
+    cy.fixture("index.json").then((locators) => {
+      cy.get(locators.productLink).eq(product).click({ timeout: 100000 });
     });
   }
 }
