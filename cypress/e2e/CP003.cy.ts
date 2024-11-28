@@ -24,7 +24,7 @@ describe("El objetivo del caso de prueba es visitar la tienda de Movistar (https
   });
 
   it("Verificar la NO existencia de un medio de pago con 60 cuotas para el banco Credicoop con tarjeta VISA ", () => {
-    cy.fixture("index.json").then((locators) => {
+    cy.fixture("product.json").then((locators) => {
       const homePage = new HomePage();
       const productPage = new ProductPage();
 
@@ -32,7 +32,7 @@ describe("El objetivo del caso de prueba es visitar la tienda de Movistar (https
 
       productPage.calculateInstallments("Credicoop", "Visa");
 
-      cy.get("#bodyTable").should("not.contain", "60 cuotas");
+      cy.get(locators.bodyTable).should("not.contain", "60 cuotas");
     });
   });
 });

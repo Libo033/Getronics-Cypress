@@ -10,7 +10,8 @@
   "productBrand": ".page-title > .brand",
   "productInfo": ".product-info-main",
   "warrantySection": "#more-info-pdp-warranty",
-  "productModel": ".base",
+  "productModel": "[itemprop='name']",
   "colorAttr": ".swatch-opt > .swatch-attribute > .swatch-attribute-options >",
-  "addToCartButton": "#swatch_attribute_card"
+  "addToCartButton": "#swatch_attribute_card",
+  "bodyTable": "#bodyTable"
 }

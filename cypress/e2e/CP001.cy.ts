@@ -14,27 +14,31 @@ describe("El objetivo del caso de prueba es visitar la tienda de Movistar (https
   });
 
   it("Correcta selección de equipo(A14)", () => {
-    const homePage = new HomePage();
-    const catalogPage = new CatalogPage();
+    cy.fixture("product.json").then((locators) => {
+      const homePage = new HomePage();
+      const catalogPage = new CatalogPage();
 
-    homePage.search("A14");
+      homePage.search("A14");
 
-    catalogPage.firstProduct();
+      catalogPage.firstProduct();
 
-    cy.get('[itemprop="name"]').should("contain", "A14");
+      cy.get(locators.productModel).should("contain", "A14");
+    });
   });
 
   it("Cantidad correcta de cuotas disponible(3)", () => {
-    const homePage = new HomePage();
-    const catalogPage = new CatalogPage();
-    const productPage = new ProductPage();
+    cy.fixture("product.json").then((locators) => {
+      const homePage = new HomePage();
+      const catalogPage = new CatalogPage();
+      const productPage = new ProductPage();
 
-    homePage.search("A14");
+      homePage.search("A14");
 
-    catalogPage.firstProduct();
+      catalogPage.firstProduct();
 
-    productPage.calculateInstallments("American Express", "American Express");
+      productPage.calculateInstallments("American Express", "American Express");
 
-    cy.get("#bodyTable").should("contain", "3 cuotas sin interés");
+      cy.get(locators.bodyTable).should("contain", "3 cuotas sin interés");
+    });
   });
 });

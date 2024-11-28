@@ -11,5 +11,6 @@
   "productList": ".products > ol li",
   "productStorage": "> a > .product-image-container > .cp-data-container > .product-item-custom-text > .product-storage",
   "productPrice": "> a > .product-image-container > .cp-data-container > .product-item-details > .final-price > .product-offer > .special-price",
-  "productLink": ".product-item"
+  "productLink": ".product-item",
+  "filterButton": "li.clearfilter"
 }
